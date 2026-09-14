@@ -1,14 +1,26 @@
+import Relogio from "./Relogio"
+
 function Header() {
   return (
     <header className="bg-rose-900 text-white px-6 py-6 shadow-lg">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl font-bold">
-          SweetBox
-        </h1>
+      <div className="max-w-6xl mx-auto flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-bold">
+            SweetBite
+          </h1>
 
-        <p className="text-rose-200 mt-1">
-          Receitas doces para deixar seu dia mais gostoso
-        </p>
+          <p className="text-rose-200 mt-1">
+            Receitas doces para deixar seu dia mais gostoso
+          </p>
+        </div>
+
+        <div className="text-right">
+          <p className="text-xs text-rose-300 mb-1">
+            Horário atual
+          </p>
+
+          <Relogio />
+        </div>
       </div>
     </header>
   )

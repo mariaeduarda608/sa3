@@ -1,4 +1,14 @@
-function RecipeCard({ titulo, descricao, categoria, dificuldade, tempo, cor }) {
+function RecipeCard({
+  titulo,
+  descricao,
+  categoria,
+  dificuldade,
+  tempo,
+  cor,
+  onRemover,
+  favorito,
+  onFavoritar,
+}) {
   let estilo = ""
 
   if (cor === "Chocolate") {
@@ -20,9 +30,14 @@ function RecipeCard({ titulo, descricao, categoria, dificuldade, tempo, cor }) {
           {categoria}
         </span>
 
-        <span className="text-2xl">
-          
-        </span>
+        <button
+  onClick={onFavoritar}
+  className={`text-3xl hover:scale-110 transition ${
+    favorito ? "text-rose-500" : "text-rose-500"
+  }`}
+>
+  {favorito ? "★" : "☆"}
+</button>
       </div>
 
       <h2 className="text-2xl font-bold text-stone-900 mb-3">
@@ -43,9 +58,18 @@ function RecipeCard({ titulo, descricao, categoria, dificuldade, tempo, cor }) {
         </span>
       </div>
 
-      <button className="bg-rose-500 text-white px-5 py-2 rounded-lg font-semibold hover:bg-rose-600 transition">
-        Ver receita
-      </button>
+      <div className="flex gap-3">
+        <button className="bg-rose-500 text-white px-5 py-2 rounded-lg font-semibold hover:bg-rose-600 transition">
+          Ver receita
+        </button>
+
+        <button
+          onClick={onRemover}
+          className="bg-stone-200 text-stone-700 px-5 py-2 rounded-lg font-semibold hover:bg-stone-300 transition"
+        >
+          Excluir
+        </button>
+      </div>
     </article>
   )
 }
